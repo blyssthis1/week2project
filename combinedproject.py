@@ -23,4 +23,18 @@ class Parking_Garage:
             print(f'Your ticket number is: {ticket}. Enjoy your stay.')
         else:
             print("The parking lot is full.")
-   
+
+    def payForParking(self):
+        ticket_no = int(input("Enter your ticket no:"))
+        if ticket_no in self.current_ticket:
+            if self.current_ticket[ticket_no] == False :
+                payment = int(input("How much would you like to pay today?: "))
+                if payment >= 1:
+                    print("Thank you! Your ticket has been paid. You have 15 minutes to leave.")
+                    self.current_ticket[ticket_no] = True
+                else:
+                    print("Invalid amount. Please try again.")
+            else:
+                print("Your ticket has been paid!")
+        else:
+            print("Enter a valid ticket number")
